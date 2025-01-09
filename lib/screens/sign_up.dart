@@ -9,8 +9,7 @@ class SignUpPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Sign Up Form'),
-            // Add your form fields here
+            Text('Sign Up Form')
           ],
         ),
       ),
