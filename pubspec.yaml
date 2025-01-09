@@ -54,6 +54,8 @@ dev_dependencies:
 flutter:
   assets:
     - assets/logo/logo.png
+    - assets/image/imagesatu.jpg
+    - assets/image/banner.jpg
     - assets/datamessage.json
     - assets/datauser.json
 

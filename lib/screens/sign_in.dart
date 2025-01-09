@@ -22,7 +22,7 @@ class _SignInPageState extends State<SignInPage> {
     if (_emailController.text == 'alfha@mail.com' && _passwordController.text == 'alfha1234') {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => DashboardPage()),  // Navigate to Dashboard screen
+        MaterialPageRoute(builder: (context) => Dashboard()),  // Navigate to Dashboard screen
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
