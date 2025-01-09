@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "sender": "User 1",
+    "message": "Hallo, Assalamualaikum"
+  },
+  {
+    "id": 2,
+    "sender": "User 2",
+    "message": "Hallo, Waalaikum Salam"
+  }
+]
