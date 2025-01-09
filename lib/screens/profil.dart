@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart';  // Pastikan DashboardScreen diimpor
+import 'massages.dart';   // Pastikan MessagesScreen diimpor
+import 'welcome.dart';    // Pastikan WelcomeScreen diimpor
 
-import 'dashboard.dart';
-import 'massages.dart';
+class ProfileScreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
 
-class ProfileScreen extends StatelessWidget {
+class _ProfileScreenState extends State<ProfileScreen> {
+  int _currentIndex = 3; // Indeks untuk "Profile" di BottomNavigationBar
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,13 +18,12 @@ class ProfileScreen extends StatelessWidget {
         title: Text("Profil"),
         backgroundColor: Colors.blueAccent,
       ),
-      body: SingleChildScrollView( // Membungkus seluruh konten dengan SingleChildScrollView
+      body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Profile Title
               Text(
                 "Profil",
                 style: TextStyle(
@@ -26,114 +32,92 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-
-              // Profile Image
               Center(
                 child: CircleAvatar(
                   radius: 60,
-                  backgroundImage: AssetImage('assets/image/profile.jpg'), // Ganti dengan path gambar profil Anda
+                  backgroundImage: AssetImage('assets/image/profile.jpg'),
                 ),
               ),
               SizedBox(height: 20),
 
-              // Video Preferences Section
               Text(
                 'Video Preferences',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Video Preferences
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Download Option'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Video Playback Option
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Video Playback Option'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               SizedBox(height: 20),
 
-              // Account Settings Section
               Text(
                 'Account Settings',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Account Security
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Account Security'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Email Notification Preferences
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Email Notification Preferences'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Learning Reminder
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Learning Reminder'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               SizedBox(height: 20),
 
-              // App Settings Section
               Text(
                 'App Settings',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for About LearnOut
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('About LearnOut'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Frequently Asked Questions
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Frequently Asked Questions'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  // Implement navigation or actions for Store the LearnOut App
-                },
+                onTap: () {},
                 child: ListTile(
                   title: Text('Store the LearnOut App'),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16), // Panah kecil
+                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
                 ),
               ),
               SizedBox(height: 20),
 
-              // Centered Log Out Button
               Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    // Implement log out logic here
+                    _showLogoutDialog(context); // Tampilkan dialog log out
                   },
                   child: Text(
                     "Log Out",
@@ -143,11 +127,11 @@ class ProfileScreen extends StatelessWidget {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.red, backgroundColor: Colors.white, // Text color (red)
+                    foregroundColor: Colors.red, backgroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 50.0),
-                    elevation: 5, // Adding some elevation to the button
+                    elevation: 5,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12), // Rounded corners
+                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
                 ),
@@ -157,6 +141,7 @@ class ProfileScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         selectedItemColor: Colors.red[900],
         unselectedItemColor: Colors.red[100],
         items: [
@@ -167,22 +152,65 @@ class ProfileScreen extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
         ],
         onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+
+          // Navigasi berdasarkan pilihan tab
           if (index == 0) {
-            // Navigate to Dashboard screen
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => Dashboard()),
             );
           } else if (index == 1) {
-            // Navigate to Messages screen
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => MessagesScreen()),
             );
+          } else if (index == 3) {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()),
+            );
           }
-          // Handle other navigation actions for Profile, Book, and Search as needed
         },
       ),
+    );
+  }
+
+  // Fungsi untuk menampilkan dialog log out
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Log Out"),
+          content: Text("Log out dari Osing Pedia?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Menutup dialog jika Cancel ditekan
+              },
+              child: Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Menutup dialog
+                _logoutAndNavigateToWelcome(context); // Pindah ke WelcomeScreen
+              },
+              child: Text("Logout"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Fungsi untuk logout dan navigasi ke WelcomeScreen
+  void _logoutAndNavigateToWelcome(BuildContext context) {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => WelcomePage()), // Ganti dengan screen tujuan Anda
     );
   }
 }
