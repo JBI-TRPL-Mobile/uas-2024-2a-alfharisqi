@@ -41,7 +41,7 @@ class _SignInPageState extends State<SignInPage> {
               ),
               SizedBox(height: 20),
               Text(
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
+                'Fill in the details below to sign in.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, color: Colors.black54),
               ),
