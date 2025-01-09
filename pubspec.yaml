@@ -56,6 +56,7 @@ flutter:
     - assets/logo/logo.png
     - assets/image/imagesatu.jpg
     - assets/image/banner.jpg
+    - assets/image/message.jpg
     - assets/datamessage.json
     - assets/datauser.json
 

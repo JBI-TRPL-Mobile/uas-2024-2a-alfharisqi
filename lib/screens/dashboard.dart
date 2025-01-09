@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
+import 'massages.dart';// Import the Messages Screen
+import 'profil.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
+  @override
+  _DashboardState createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    // Add the pages to be navigated to
+    Container(),  // Placeholder for Home page
+    MessagesScreen(),  // Your messages screen (screens/massages.dart)
+    Container(),  // Placeholder for Book page
+    ProfileScreen(),  // Your profile screen (screens/profil.dart)
+    Container(),  // Placeholder for Search page
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,9 +82,9 @@ class Dashboard extends StatelessWidget {
                   Text(
                     'Categories',
                     style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black // Warna teks merah
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black // Warna teks merah
                     ),
                   ),
                   TextButton(
@@ -127,8 +145,27 @@ class Dashboard extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
         selectedItemColor: Colors.red[900],
         unselectedItemColor: Colors.red[100],
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;  // Update the selected index
+            if (index == 1) {
+              // Navigate to Messages screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MessagesScreen()),
+              );
+            } else if (index == 3) {
+              // Navigate to Profile screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
+            }
+          });
+        },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.message), label: 'Message'),
