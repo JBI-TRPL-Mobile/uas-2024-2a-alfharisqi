@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
-import '../providers/user_provider.dart';
-import 'package:provider/provider.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final userProvider = Provider.of<UserProvider>(context);
     return Scaffold(
-      appBar: AppBar(title: Text('Dashboard')),
+      appBar: AppBar(
+        title: Text('Dashboard'),
+      ),
       body: Center(
-        child: FutureBuilder(
-          future: userProvider.fetchUsers(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator();
-            }
-            return ListView.builder(
-              itemCount: userProvider.users.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(userProvider.users[index].name),
-                  subtitle: Text(userProvider.users[index].email),
-                );
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Welcome, User!'),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/messages');
               },
-            );
-          },
+              child: Text('View Messages'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/profile');
+              },
+              child: Text('View Profile'),
+            ),
+          ],
         ),
       ),
     );

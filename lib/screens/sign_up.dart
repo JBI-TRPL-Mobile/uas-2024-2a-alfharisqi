@@ -28,6 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // Set background color to white
       appBar: AppBar(
         title: Text('Sign Up'),
         backgroundColor: Colors.red, // Set AppBar color to red
@@ -56,7 +57,7 @@ class _SignUpPageState extends State<SignUpPage> {
               controller: _fullNameController,
               decoration: InputDecoration(
                 labelText: 'Full Name',
-                hintText: 'John Doe',
+                hintText: 'Name',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -65,7 +66,7 @@ class _SignUpPageState extends State<SignUpPage> {
               controller: _emailController,
               decoration: InputDecoration(
                 labelText: 'Email',
-                hintText: 'yourmail@gmail.com...',
+                hintText: 'yourmail@mail.com...',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -154,7 +155,10 @@ class _SignUpPageState extends State<SignUpPage> {
                 // Navigate to Sign In page
                 Navigator.pushNamed(context, '/signIn');
               },
-              child: Text("Already have an account? Sign In Now"),
+              child: Text("Don't have an account? Sign Up Now"),
+              style: TextButton.styleFrom(
+                foregroundColor: Colors.red[900], // Set color of the text to red
+              ),
             ),
           ],
         ),
