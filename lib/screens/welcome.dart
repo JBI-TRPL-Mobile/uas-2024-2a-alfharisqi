@@ -70,6 +70,7 @@ class WelcomePage extends StatelessWidget {
                       fontSize: 18, // Ukuran font tombol
                       fontWeight: FontWeight.w600, // Menebalkan font tombol
                     ),
+                    foregroundColor: Colors.red[900], // Warna teks hitam
                   ),
                   child: Text(
                     'Sign In',
@@ -96,6 +97,7 @@ class WelcomePage extends StatelessWidget {
                       fontSize: 18, // Ukuran font tombol
                       fontWeight: FontWeight.w600, // Menebalkan font tombol
                     ),
+                    foregroundColor: Colors.red[900], // Warna teks hitam
                   ),
                   child: Text(
                     'Sign Up',
