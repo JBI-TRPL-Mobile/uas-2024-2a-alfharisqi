@@ -16,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Profil"),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -127,7 +127,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.red, backgroundColor: Colors.white,
+                    foregroundColor: Colors.red[900], backgroundColor: Colors.red[100],
                     padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 50.0),
                     elevation: 5,
                     shape: RoundedRectangleBorder(
